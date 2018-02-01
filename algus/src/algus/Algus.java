@@ -14,8 +14,7 @@ public class Algus {
     /**
      * Arvamus ilma kohta
      */
-    public static void ilmaKommentaar(){
-        int temperatuur=-2;
+    public static void ilmaKommentaar(int temperatuur){      
         if(temperatuur>0){System.out.println("sulab");}
         else{System.out.println("Jäätab");}    
     }
@@ -25,7 +24,7 @@ public class Algus {
      */
     public static void main(String[] args) {
         System.out.println("Hello, Web!");
-        ilmaKommentaar();
+        ilmaKommentaar(3);
     }
     
 }
