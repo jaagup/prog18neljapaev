@@ -16,7 +16,7 @@ public class Algus {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello, Web");
+        System.out.println("Hello, Web!");
     }
     
 }
