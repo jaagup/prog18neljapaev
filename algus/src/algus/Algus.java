@@ -12,6 +12,11 @@ package algus;
 public class Algus {
 
     /**
+     * Alamprogramm toa soojuse hindamiseks vastavalt temperatuurile.
+     * Vähemasti kolm taset
+     */
+    
+    /**
      * Arvamus ilma kohta
      */
     public static void ilmaKommentaar(int temperatuur){      
