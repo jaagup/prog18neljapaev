@@ -17,7 +17,7 @@ public class Pall {
        this(x, y, 1);
    }
    public boolean kasPuutub(Pall teine){
-       return kaugusPallist(teine)<getR()+teine.getR();
+       return kaugusPallist(teine)<this.getR()+teine.getR();
    }
    public double kaugusNullist(){
       return Math.sqrt(x*x+y*y); //käivitage
