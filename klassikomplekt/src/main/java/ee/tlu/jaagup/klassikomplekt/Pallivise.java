@@ -5,6 +5,7 @@ public class Pallivise {
    void alusta(){
       lendaja=new Pall(10, 200, 10);
       sihtkoht=new Pall(250, 120, 20);
+      lendaja.sammuAndmed(2, 1);
    }
    boolean kasPihtas(){
       return lendaja.kasPuutub(sihtkoht);
