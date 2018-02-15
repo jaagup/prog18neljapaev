@@ -6,8 +6,7 @@ public class Proov3 {
       Pallivise mang1=new Pallivise();
       mang1.alusta();
       for(int i=0; i<20; i++){
-         mang1.liigu();
-         
+         mang1.liigu();         
       }
     }
 }
