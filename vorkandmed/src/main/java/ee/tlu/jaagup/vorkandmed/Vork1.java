@@ -27,6 +27,7 @@ public class Vork1 {
        System.out.println("Septembri keskmine: "+summad[1]/kogus);
       }catch(Exception ex){
          System.out.println("Probleem: "+ex);
+         ex.printStackTrace();
       }
        //Kuvage augusti diameetrite summa ning septembri diameetrite keskmine
        //Looge uus programm, kuvage samade õunte augusti ja septembri
