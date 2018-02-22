@@ -15,12 +15,12 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 public class Ountejoonis2 extends JPanel {
 
     java.util.List<double[]> ounad;
-    DescriptiveStatistics kirjeldusAugust;
+    java.util.List<DescriptiveStatistics> kirjeldused;
 
     public java.util.List<double[]> kysiOunteAndmed() {
         if (ounad == null) {
             ounad=new ArrayList<>();
-            kirjeldusAugust=new DescriptiveStatistics();
+            kirjeldused=new ArrayList<>();
             try {
                 String aadress = "http://www.tlu.ee/~jaagup/andmed/muu/ounad/antoonovka2.txt";
                 BufferedReader br = new BufferedReader(new InputStreamReader(
@@ -28,14 +28,17 @@ public class Ountejoonis2 extends JPanel {
                 ));
                 String rida = br.readLine();
                 rida = br.readLine();
+                for(int i=0; i<rida.split(",").length; i++){
+                   kirjeldused.add(new DescriptiveStatistics());
+                }
                 while (rida != null) {
                     String[] m = rida.split(",");
                     double[] dm=new double[m.length];
                     for (int i = 0; i < m.length; i++) {
                         dm[i]=Double.parseDouble(m[i]);
+                        kirjeldused.get(i).addValue(dm[i]);
                     }
                     ounad.add(dm);
-                    kirjeldusAugust.addValue(dm[0]);
                     rida = br.readLine();
                 }
                 br.close();
@@ -51,8 +54,11 @@ public class Ountejoonis2 extends JPanel {
         for(double[] m: kysiOunteAndmed()){
            g.fillOval((int)(m[0]*koef), getHeight()-(int)(m[1]*koef), 5, 5);
         }
-        int minX=(int)(kirjeldusAugust.getMin()*koef);
+        int minX=(int)(kirjeldused.get(0).getMin()*koef);
+        int keskY=getHeight()-(int)(kirjeldused.get(1).getMean()*koef);
         g.drawLine(minX, 0, minX, 300);
+        g.drawLine(0, keskY, 400, keskY);
+        //Lisage joon septembri keskmise väärtuse kohta 
     }
 
     void ounteJoonisFaili(){
