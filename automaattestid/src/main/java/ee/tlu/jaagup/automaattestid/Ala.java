@@ -27,7 +27,21 @@ class Ala {
         }
         return sb.toString();
     }
-
+    public void k2sk(char korraldus){
+       if(korraldus=='e'){
+          m[k.kysiX()][k.kysiY()]='*';
+          k.edasi();
+       }
+       if(korraldus=='p'){
+          k.keeraParemale();
+       }
+       m[k.kysiX()][k.kysiY()]=k.toString().charAt(0);
+    }
+    public void k2sud(String s){
+       for(int i=0; i<s.length(); i++){
+          k2sk(s.charAt(i));
+       }
+    }
     public Kilpkonn kysiKilpkonn() {
         return k;
     }
