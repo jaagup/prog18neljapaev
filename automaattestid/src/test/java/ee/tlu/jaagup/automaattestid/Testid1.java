@@ -2,6 +2,7 @@ package ee.tlu.jaagup.automaattestid;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 import org.junit.Before;
 
 public class Testid1 {
@@ -62,5 +63,17 @@ public class Testid1 {
        k.keeraParemale();
        k.edasi();
        kontrolliAsend(4, 5, 1);
+    }
+    
+    @Test public void kuvamine(){
+       assertThat(k.toString(), is(">"));
+       k.keeraParemale();
+       assertThat(k.toString(), is("v"));
+       k.keeraParemale();
+       assertThat(k.toString(), is("<"));
+       k.keeraParemale();
+       assertThat(k.toString(), is("^"));
+       k.keeraParemale();
+       assertEquals(">", k.toString());
     }
 }
