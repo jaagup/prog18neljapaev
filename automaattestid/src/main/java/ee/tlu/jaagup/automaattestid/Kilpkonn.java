@@ -21,5 +21,13 @@ public class Kilpkonn {
 
     void keeraParemale() {
         suund++;
+        if(suund>4){suund=1;}
+    }
+
+    void edasi() {
+        if(suund==1){x++;}
+        if(suund==2){y++;}
+        if(suund==3){x--;}
+        if(suund==4){y--;}
     }
 }

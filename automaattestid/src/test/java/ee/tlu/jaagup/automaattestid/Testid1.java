@@ -28,5 +28,39 @@ public class Testid1 {
        assertEquals(1, k.kysiSuund()); 
        k.keeraParemale(); 
        assertEquals(2, k.kysiSuund()); 
+       k.keeraParemale(); 
+       assertEquals(3, k.kysiSuund()); 
+       k.keeraParemale(); 
+       assertEquals(4, k.kysiSuund()); 
+       k.keeraParemale(); 
+       assertEquals(1, k.kysiSuund()); 
+    }
+    
+    void kontrolliAsend(int x, int y, int suund){
+       assertEquals(x, k.kysiX());
+       assertEquals(y, k.kysiY());
+       assertEquals(suund, k.kysiSuund());     
+    }
+    
+    @Test public void liikumine(){
+       assertEquals(3, k.kysiX());
+       assertEquals(5, k.kysiY());
+       assertEquals(1, k.kysiSuund()); 
+       k.edasi(); 
+       assertEquals(4, k.kysiX());
+       assertEquals(5, k.kysiY());
+       assertEquals(1, k.kysiSuund()); 
+       k.keeraParemale();
+       k.edasi();
+       kontrolliAsend(4, 6, 2);
+       k.keeraParemale();
+       k.edasi();
+       kontrolliAsend(3, 6, 3);
+       k.keeraParemale();
+       k.edasi();
+       kontrolliAsend(3, 5, 4);
+       k.keeraParemale();
+       k.edasi();
+       kontrolliAsend(4, 5, 1);
     }
 }
