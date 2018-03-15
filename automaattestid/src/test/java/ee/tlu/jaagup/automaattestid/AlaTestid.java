@@ -12,5 +12,17 @@ public class AlaTestid {
     }
     @Test public void loomine(){
        assertThat(a.kysiKilpkonn().kysiX(), is(0));
+       assertThat(a.toString(), is(
+               ">.........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n"+
+               "..........\n")
+       );
     }
 }
