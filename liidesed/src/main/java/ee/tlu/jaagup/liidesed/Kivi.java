@@ -1,17 +1,10 @@
 package ee.tlu.jaagup.liidesed;
-public class Kivi implements AsukohagaObjekt{
-    int x, y;
+public class Kivi extends Koht{
     public Kivi(int x, int y){
-      this.x=x; this.y=y;
+      super(x, y);
     }
-
     @Override
-    public int kysiX() {
-       return x;
-    }
-
-    @Override
-    public int kysiY() {
-       return y;
+    public String toString(){
+       return "o ("+x+", "+y+")";
     }
 }

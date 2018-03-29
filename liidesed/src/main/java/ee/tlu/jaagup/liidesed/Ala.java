@@ -18,6 +18,10 @@ class Ala {
         m[k.kysiX()][k.kysiY()]=k.toString().charAt(0);
     }
     
+    public boolean kasVaba(Koht koht){
+       return kasVaba(koht.kysiX(), koht.kysiY());
+    }
+    
     public boolean kasVaba(int x, int y){
         if(x<0){return false;}
         if(y<0){return false;}
@@ -39,6 +43,7 @@ class Ala {
     public boolean lisaKivi(Kivi k){
        if(kasVaba(k.kysiX(), k.kysiY())){
           objektid.add(k);
+          m[k.kysiX()][k.kysiY()]=k.toString().charAt(0);
           return true;
        }
        return false;
@@ -55,15 +60,27 @@ class Ala {
         }
         return sb.toString();
     }
-    public void k2sk(char korraldus){
+    public boolean k2sk(char korraldus){
+       int viga=-1;
        if(korraldus=='e'){
-          m[k.kysiX()][k.kysiY()]='*';
-          k.edasi();
+          //Liigu edasi vaid juhul, kui sinna tohib minna
+          //Kontrolli õigsust testiga
+          if(kasVaba(k.jargmineKoht())){
+            m[k.kysiX()][k.kysiY()]='*';
+            k.edasi();
+            viga=0;
+          } else {
+            System.out.println("kinni");
+            viga=1;
+          }
        }
        if(korraldus=='p'){
           k.keeraParemale();
+          viga=0;
        }
        m[k.kysiX()][k.kysiY()]=k.toString().charAt(0);
+       if(viga==-1){throw new RuntimeException("tundmatu käsk");}
+       return viga==0;
     }
     public void k2sud(String s){
        for(int i=0; i<s.length(); i++){

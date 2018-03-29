@@ -33,6 +33,15 @@ public class Kilpkonn implements AsukohagaObjekt{
         if(kysiSuund()==3){andmed.put("x",andmed.get("x")-1);}
         if(kysiSuund()==4){andmed.put("y",andmed.get("y")-1);}
     }
+    
+    Koht jargmineKoht(){
+       if(kysiSuund()==1){return new Koht(kysiX()+1, kysiY());}
+       if(kysiSuund()==2){return new Koht(kysiX(), kysiY()+1);}
+       if(kysiSuund()==3){return new Koht(kysiX()-1, kysiY());}
+       if(kysiSuund()==4){return new Koht(kysiX(), kysiY()-1);}
+       return new Koht(kysiX(), kysiY());
+    }
+    
     @Override
     public String toString(){
        if(kysiSuund()==1){return ">";}

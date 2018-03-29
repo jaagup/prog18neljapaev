@@ -97,7 +97,13 @@ public class AlaTestid {
                "..........\n"+
                "..........\n"+
                "..........\n")
-       );
-       
+       );         
+    }
+    @Test
+    public void liikumisePiirid(){
+        assertTrue(a.k2sk('e'));
+        a.lisaKivi(new Kivi(2, 0));
+        assertFalse(a.k2sk('e'));
     }
 }
+
