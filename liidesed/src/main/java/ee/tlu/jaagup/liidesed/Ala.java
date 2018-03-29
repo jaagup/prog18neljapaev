@@ -1,12 +1,14 @@
 package ee.tlu.jaagup.liidesed;
-
+import java.util.*;
 class Ala {
 
     Kilpkonn k;
     char[][] m;
-
+    List<AsukohagaObjekt> objektid=new ArrayList<>();
+    
     Ala(int laius, int korgus) {
         k = new Kilpkonn(0, 0);
+        objektid.add(k);
         m = new char[laius][korgus];
         for (int y = 0; y < m[0].length; y++) {
             for (int x = 0; x < m.length; x++) {
@@ -15,6 +17,21 @@ class Ala {
         }
         m[k.kysiX()][k.kysiY()]=k.toString().charAt(0);
     }
+    
+    public boolean kasVaba(int x, int y){
+        if(x<0){return false;}
+        if(y<0){return false;}
+        if(x>=m.length){return false;}
+        if(y>=m[0].length){return false;}
+        for(AsukohagaObjekt obj: objektid){
+           if(obj.kysiX()==x && obj.kysiY()==y){return false;}
+        }
+      /*if (!objektid.stream().noneMatch((obj) -> (obj.kysiX()==x && obj.kysiY()==y))) {
+            return false;
+        }*/        
+        return true;
+    }
+    //Lisage paar testi - vaba, alast väljas, kilpkonnal pihtas
 
     @Override
     public String toString() {
