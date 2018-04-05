@@ -40,6 +40,14 @@ public class Kabetest1 {
       //Koostage test kontrollimaks, et valget nuppu võib
       //liigutada ainult diagonaalis ühe sammu võrra üles
       //muul juhul peab ekraanil vastavasse lahtrisse ilmuma veateade
-      
+      $("#k52").click();
+      $("#k34").click();
+      $("#teated").shouldHave(text("Lubamatu käik"));
+      $("#k52").shouldHave(text("v"));
+      $("#k34").shouldHave(text(""));
+      $("#k54").click();
+      $("#k45").click();
+      $("#k54").shouldHave(text(""));
+      $("#k45").shouldHave(text("v"));
    }
 }
