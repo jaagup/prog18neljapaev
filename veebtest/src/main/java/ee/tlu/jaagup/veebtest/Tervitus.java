@@ -11,6 +11,6 @@ package ee.tlu.jaagup.veebtest;
  */
 public class Tervitus {
     public static void main(String[] arg){
-      System.out.println("tere");
+      System.out.println("tere!");
     }
 }
