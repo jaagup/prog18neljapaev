@@ -9,5 +9,11 @@ public class Kabetest1 {
    public void avamine(){
        open("http://www.tlu.ee/~jaagup/veeb1/kabe1.html");
        $("h1").shouldHave(text("Kabe"));
+       assertEquals("tume", 
+               $("#tabel1").$$("tr").get(0).
+                      $$("td").get(1).getAttribute("class"));
+       assertEquals("", 
+               $("#tabel1").$$("tr").get(0).
+                      $$("td").get(0).getAttribute("class"));
    }
 }
